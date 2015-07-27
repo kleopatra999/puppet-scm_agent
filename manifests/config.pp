@@ -4,7 +4,7 @@ class scm_agent::config (
   $scm_url,                
   $scm_type,  
   $install_dir     = $scm_agent::params::install_dir,
-  $auth_token 
+  $auth_token,
   $scm_username, 
   $scm_password,
   $proxy_host,
