@@ -23,7 +23,6 @@ class scm_agent::install (
 
   exec { 'unzip':
     command       => "/usr/bin/unzip ${install_dir}/scm_agent.zip",
-    refreshonly   => true,
     creates       => "${install_dir}/srcclr-scm-agent-${version}",
   }
 }
