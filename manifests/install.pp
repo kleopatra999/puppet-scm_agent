@@ -16,13 +16,13 @@ class scm_agent::install (
 
   package {['wget','unzip']: ensure => present, }
 
-  scm_agent::remote_file { "${install_dir}/scm_agent.zip":
+  scm_agent::remote_file { "${install_dir}/scm_agent_${version}.zip":
     source    => "${download_url}/${pkg_name}-${version}.zip",
     require   => [Package['wget','unzip'],File[$install_dir]],
   }
 
   exec { 'unzip':
-    command       => "/usr/bin/unzip ${install_dir}/scm_agent.zip",
+    command       => "/usr/bin/unzip ${install_dir}/scm_agent_${version}.zip",
     creates       => "${install_dir}/srcclr-scm-agent-${version}",
   }
 }
