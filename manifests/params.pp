@@ -2,17 +2,18 @@ class scm_agent::params {
   # Class basics
   $service_name                   = 'scm_agent'
   $image_name                     = $service_name 
-  $version                        = 'latest' 
   $agent_id                       = undef
   $agent_secret                   = undef
   $scm_url                        = undef
-  $scm_type                       = undef
+  $scm_type                       = 'GITHUB' 
 
   # ! docker settings
   $install_dir                    = '/opt/sourceclear'
   $xmx_settings                   = undef
   $xms_settings                   = undef
-  $download_url                   = "https://download.srcclr.com/scm/srcclr-scm-agent-${version}.zip"
+  $version                        = 'latest'
+  $download_url                   = "https://download.srcclr.com/scm"
+  $pkg_name                       = 'srcclr-scm-agent'
   $init_script                    = 'puppet:///modules/scm_agent/init'
   $init_path                      = $ 
 
