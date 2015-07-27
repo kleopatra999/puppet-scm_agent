@@ -27,7 +27,7 @@ class scm_agent::config (
   # TODO logrotate
   logrotate::rule { 'scm_agent':
     path         => '/var/log/scm_agent.log',
-    rotate       => 3,
+    rotate       => '3',
     rotate_every => 'day',
     postrotate   => "/etc/init.d/scm_agent restart",
   }
