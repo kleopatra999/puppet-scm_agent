@@ -14,11 +14,11 @@ class scm_agent::install (
     ensure  => directory,
   }
 
-  package {['wget','unzip']: ensure => present, }
+  package {['wget','unzip','git']: ensure => present, }
 
   scm_agent::remote_file { "${install_dir}/scm_agent_${version}.zip":
     source    => "${download_url}/${pkg_name}-${version}.zip",
-    require   => [Package['wget','unzip'],File[$install_dir]],
+    require   => [Package['wget','unzip','git'],File[$install_dir]],
     notify    => Exec['unzip'],
   }
 
