@@ -15,9 +15,15 @@ class scm_agent (
   validate_re($scm_type, '^GITHUB$|^GITHUBENTERPRISE$|^STASH$', "You must pass GITHUB || GITHUBENTERPRISE || STASH to $scm_type")
 
   class {::scm_agent::install: version => $version }
-  #->
-  #class {::scm_agent::config:}
-  #->
-  #class {::scm_agent::service:}
+  ->
+  class {::scm_agent::config:
+    scm_url       => $scm_url,
+    scm_type      => $scm_type,
+    agent_id      => $agent_id,
+    agent_secret  => $agent_secret,
+    install_dir   => $install_dir,
+  }
+  ->
+  class {::scm_agent::service: version => $version }
 
 }
