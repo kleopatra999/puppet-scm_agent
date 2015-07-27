@@ -21,6 +21,7 @@ class scm_agent::config (
     ensure    => file,
     path      => "${install_dir}/application.properties",
     content   => template('scm_agent/application.properties.erb'),
+    notify    => Service['scm_agent'],
   }
 
   # TODO logrotate
