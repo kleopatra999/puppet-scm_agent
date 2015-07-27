@@ -1,0 +1,70 @@
+##!/bin/env bash
+###########################
+# SRC:CLR SCM Agent       #
+# Issues: jeff@srcclr.com #
+###########################
+
+# Service Variables
+PATH_TO_JAR=/opt/sourceclear/srcclr-scm-agent-<%= @version %>/agent-<%= @version %>.jar
+LOGDIR=/var/log/sourceclear
+PID_PATH=/var/run/scm_agent.pid
+
+get_pid() {
+  cat "$PID_PATH"
+}
+
+is_running() {
+  [ -f "$PID_PATH" ] && ps `get_pid` > /dev/null 2>&1
+}
+
+start() {
+  if is_running; then
+    echo "SCM Agent is already running\n"
+  else
+    java -Dspring.profiles.active=ws -jar $PATH_TO_JAR --spring.config.location=$APP_PROPERTIES > $LOGDIR/scm_agent.log 2>&1
+    echo $! > $PID_PATH
+    echo "SCM Agent started\n"
+  fi
+}
+
+stop() {
+  if is_running; then
+    echo "Stopping SCM Agent"
+    kill -9 `get_pid`
+    rm $PID_PATH
+  else
+    echo "SCM Agent is not running"
+  fi
+}
+
+status() {
+  if is_running; then
+    echo "SCM Agent is running."
+  else
+    echo "SCM Agent is not running."
+  fi
+}
+restart() {
+  stop
+  sleep 1
+  start
+}
+
+case $1 in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    restart
+    ;;
+  status)
+    status
+    ;;
+  *)
+    echo "Usage: start|stop|restart"
+    ;;
+esac
+exit 0
