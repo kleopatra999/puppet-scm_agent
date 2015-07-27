@@ -11,7 +11,7 @@ class scm_agent::params {
   $install_dir                    = '/opt/sourceclear'
   $xmx_settings                   = undef
   $xms_settings                   = undef
-  $version                        = 'latest'
+  $version                        = '0.6.1'
   $download_url                   = "https://download.srcclr.com/scm"
   $pkg_name                       = 'srcclr-scm-agent'
   $service_ensure                 = 'running'
