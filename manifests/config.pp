@@ -25,6 +25,12 @@ class scm_agent::config (
   }
 
   # TODO logrotate
+  logrotate::rule { 'scm_agent':
+    path         => '/var/log/scm_agent.log',
+    rotate       => 3,
+    rotate_every => 'day',
+    postrotate   => "/etc/init.d/scm_agent restart",
+  }
 
   # This is the worst java implementation ever, waiting for something better to install java 8
   if $manage_java { 
