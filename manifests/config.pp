@@ -24,7 +24,7 @@ class scm_agent::config (
   }
 
   # This is the worst java implementation ever, waiting for something better to install java 8
-  if $manage_java [
+  if $manage_java { 
     include ::apt
     apt::ppa { 'ppa:webupd8team/java': }
     package { 'oracle-java8-installer':
