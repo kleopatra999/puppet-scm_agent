@@ -14,8 +14,7 @@ class scm_agent::params {
   $version                        = 'latest'
   $download_url                   = "https://download.srcclr.com/scm"
   $pkg_name                       = 'srcclr-scm-agent'
-  $init_script                    = 'puppet:///modules/scm_agent/init'
-  $init_path                      = '' 
+  $service_ensure                 = 'running'
 
   # Docker configuration 
   $docker_registry_url            = undef
