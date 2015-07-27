@@ -6,6 +6,17 @@ class scm_agent::params {
   $agent_secret                   = undef
   $scm_url                        = undef
   $scm_type                       = 'GITHUB' 
+  
+  # For github enterprise
+  $auth_token                     = undef
+  
+  # For stash
+  $scm_username                   = undef
+  $scm_password                   = undef
+
+  # Proxy Settings
+  $proxy_host                     = undef
+  $proxy_port                     = undef
 
   # ! docker settings
   $install_dir                    = '/opt/sourceclear'

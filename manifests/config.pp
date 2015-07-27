@@ -1,9 +1,14 @@
 class scm_agent::config (
   $agent_id,
   $agent_secret,
-  $scm_url                = undef,
-  $scm_type               = $scm_agent::params::scm_type,
-  $install_dir            = $scm_agent::params::install_dir,
+  $scm_url,                
+  $scm_type,  
+  $install_dir     = $scm_agent::params::install_dir,
+  $auth_token 
+  $scm_username, 
+  $scm_password,
+  $proxy_host,
+  $proxy_port,
 
 )inherits scm_agent::params{
 

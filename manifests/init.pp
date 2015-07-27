@@ -3,6 +3,11 @@ class scm_agent (
   $agent_secret,
   $scm_url                = undef,
   $scm_type               = $scm_agent::params::scm_type,
+  $auth_token             = $scm_agent::params::auth_token,
+  $scm_username           = $scm_agent::params::scm_username,
+  $scm_password           = $scm_agent::params::scm_password,
+  $proxy_host             = $scm_agent::params::proxy_host,
+  $proxy_port             = $scm_agent::params::proxy_port,
   $version                = $scm_agent::params::version,
   $use_docker             = $scm_agent::params::use_docker,
   $docker_registry_url    = $scm_agent::params::docker_registry_url,
@@ -22,6 +27,11 @@ class scm_agent (
     agent_id      => $agent_id,
     agent_secret  => $agent_secret,
     install_dir   => $install_dir,
+    auth_token    => $auth_token,
+    scm_username  => $scm_username,
+    scm_password  => $scm_password,
+    proxy_host    => $proxy_host,
+    proxy_port    => $proxy_port,
   }
   ->
   class {::scm_agent::service: version => $version }
