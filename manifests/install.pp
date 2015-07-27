@@ -16,7 +16,7 @@ class scm_agent::install (
 
   package {'wget': ensure => present, }
 
-  scm_agent::remote_file { "${install_dir}/scm_agent":
+  scm_agent::remote_file { "${install_dir}/scm_agent.zip":
     source    => "${download_url}/${pkg_name}-${version}.zip",
     require   => [Package['wget'],File[$install_dir]],
   }
