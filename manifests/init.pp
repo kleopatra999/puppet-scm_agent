@@ -1,8 +1,8 @@
 class scm_agent (
   $agent_id,
   $agent_secret,
-  $scm_url,
-  $scm_type,
+  $scm_url                = undef,
+  $scm_type               = $scm_agent::params::agent_type,
   $version                = $scm_agent::params::version,
   $use_docker             = $scm_agent::params::use_docker,
   $docker_registry_url    = $scm_agent::params::docker_registry_url,
@@ -14,7 +14,7 @@ class scm_agent (
 
   validate_re($scm_type, '^GITHUB$|^GITHUBENTERPRISE$|^STASH$', "You must pass GITHUB || GITHUBENTERPRISE || STASH to $scm_type")
 
-  class {::scm_agent::install: version = $version }
+  class {::scm_agent::install: version => $version }
   #->
   #class {::scm_agent::config:}
   #->
