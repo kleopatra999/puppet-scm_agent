@@ -21,7 +21,7 @@ start() {
   if is_running; then
     echo "SCM Agent is already running\n"
   else
-    java -Dspring.profiles.active=ws -jar $PATH_TO_JAR --spring.config.location=$APP_PROPERTIES > $LOGDIR/scm_agent.log 2>&1
+    java -Dspring.profiles.active=ws -jar $PATH_TO_JAR --spring.config.location=$APP_PROPERTIES > $LOGDIR/scm_agent.log 2>&1 &
     echo $! > $PID_PATH
     echo "SCM Agent started\n"
   fi
