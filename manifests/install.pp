@@ -19,6 +19,7 @@ class scm_agent::install (
   scm_agent::remote_file { "${install_dir}/scm_agent_${version}.zip":
     source    => "${download_url}/${pkg_name}-${version}.zip",
     require   => [Package['wget','unzip'],File[$install_dir]],
+    notify    => Exec['unzip'],
   }
 
   exec { 'unzip':
