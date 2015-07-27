@@ -2,7 +2,7 @@ class scm_agent (
   $agent_id,
   $agent_secret,
   $scm_url                = undef,
-  $scm_type               = $scm_agent::params::agent_type,
+  $scm_type               = $scm_agent::params::scm_type,
   $version                = $scm_agent::params::version,
   $use_docker             = $scm_agent::params::use_docker,
   $docker_registry_url    = $scm_agent::params::docker_registry_url,
