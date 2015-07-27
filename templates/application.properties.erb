@@ -1,0 +1,32 @@
+# SourceClear SCM Agent credentials.  This can be accessed by going to your
+# Organization on https://app.sourceclear.com and navigating to Settings->SCM Agents.
+
+agentId=<%= @agent_id %>
+agentSecret=<%= @agent_secret %>
+
+scmType=<%= @scm_type %>
+
+# The location of you Github Enterprise or Atlassian Stash server.  This should point to its main url eg: http://myserver:8080/ Leave blank if using github.com
+<% if @scm_url -%>
+scmUrl=<%= @scm_url %>
+<% end -%>
+# SCM Authorization settings
+# For Github Enterprise you'll need to generate an API auth token for an account
+# that has at least read access to the repositories you wish to import and scan.
+#
+<% if @auth_token -%>
+authToken=<%= @auth_token %>
+<% end -%>
+
+# For Atlassian Stash, you'll need to enter a username/password. This account will need read access to any repositories and projects you wish to manage with SourceClear.
+#scmUsername=
+#scmPassword=
+
+# Proxy settings
+<% if @proxy_host -%>
+proxyHost=<%= @proxy_host %>
+proxyPort=<%= @proxy_port %>
+<% end -%>
+
+# The below settings shouldn't be modified unless directed by SourceClear
+platformUrl=wss://api.srcclr.com/scm
