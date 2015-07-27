@@ -6,8 +6,8 @@ class scm_agent::install (
 )inherits scm_agent::params{
 
   File {
-    Owner => 'root',
-    Group => 'root',
+    owner => 'root',
+    group => 'root',
   }
 
   file { $install_dir:
