@@ -4,6 +4,10 @@
 # Issues: jeff@srcclr.com #
 ###########################
 
+<% if @manage_maven -%>
+export M2_HOME=<%= @m2_home %>
+<% end -%>
+
 # Service Variables
 PATH_TO_JAR=/opt/sourceclear/srcclr-scm-agent-<%= @version %>/lib/agent-<%= @version %>.jar
 LOGDIR=/var/log
