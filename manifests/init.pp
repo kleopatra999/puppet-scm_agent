@@ -15,6 +15,7 @@ class scm_agent (
   $install_dir            = $scm_agent::params::install_dir,
   $download_url           = $scm_agent::params::download_url,
   $docker_env             = $scm_agent::params::docker_env,
+  $manage_java            = $scm_agent::params::manage_java,
 )inherits scm_agent::params{
 
   validate_re($scm_type, '^GITHUB$|^GITHUBENTERPRISE$|^STASH$', "You must pass GITHUB || GITHUBENTERPRISE || STASH to $scm_type")
@@ -22,6 +23,7 @@ class scm_agent (
   class {::scm_agent::install: version => $version }
   ->
   class {::scm_agent::config:
+    manage_java   => $manage_java,
     scm_url       => $scm_url,
     scm_type      => $scm_type,
     agent_id      => $agent_id,

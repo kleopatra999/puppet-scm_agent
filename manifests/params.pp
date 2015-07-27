@@ -35,6 +35,8 @@ class scm_agent::params {
     "SCMURL=${scm_url}",
     "SCMTYPE=${scm_type}",
   ]
+
+  $manage_java                    = true
   $use_docker                     = false
 
 }
