@@ -11,7 +11,6 @@ class scm_agent::config (
   $proxy_host,
   $proxy_port,
   $m2_home,          
-  $manage_maven,  
 )inherits scm_agent::params{
 
   file { '/var/log':
