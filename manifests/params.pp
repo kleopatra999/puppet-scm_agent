@@ -36,7 +36,10 @@ class scm_agent::params {
     "SCMTYPE=${scm_type}",
   ]
 
+  # Options
   $manage_java                    = true
+  $manage_maven                   = false
+  $m2_home                        = undef
   $use_docker                     = false
 
 }

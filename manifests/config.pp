@@ -4,13 +4,14 @@ class scm_agent::config (
   $agent_secret,
   $scm_url,                
   $scm_type,  
-  $install_dir     = $scm_agent::params::install_dir,
+  $install_dir      = $scm_agent::params::install_dir,
   $auth_token,
   $scm_username, 
   $scm_password,
   $proxy_host,
   $proxy_port,
-
+  $m2_home,          
+  $manage_maven,  
 )inherits scm_agent::params{
 
   file { '/var/log':
