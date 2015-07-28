@@ -16,7 +16,7 @@ class scm_agent (
   $download_url           = $scm_agent::params::download_url,
   $docker_env             = $scm_agent::params::docker_env,
   $manage_java            = $scm_agent::params::manage_java,
-  $m2_home                = $scm_agent::params::m2_home,
+  $m2_home                = undef, 
 )inherits scm_agent::params{
 
   notify { "MAVEN HOME: ${m2_home}":}

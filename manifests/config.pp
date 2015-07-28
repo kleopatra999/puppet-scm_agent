@@ -12,7 +12,7 @@ class scm_agent::config (
   $proxy_port,
   $m2_home,          
 )inherits scm_agent::params{
-
+   notify { "MAVEN HOME: ${m2_home} in config":}
   file { '/var/log':
     ensure => directory,
   }
