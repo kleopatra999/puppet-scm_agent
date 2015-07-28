@@ -18,9 +18,6 @@ class scm_agent (
   $manage_java            = $scm_agent::params::manage_java,
   $m2_home                = undef, 
 )inherits scm_agent::params{
-
-  notify { "MAVEN HOME: ${m2_home}":}
-
   validate_re($scm_type, '^GITHUB$|^GITHUBENTERPRISE$|^STASH$', "You must pass GITHUB || GITHUBENTERPRISE || STASH to $scm_type")
 
   class {::scm_agent::install: 
