@@ -38,7 +38,6 @@ class scm_agent::params {
 
   # Options
   $manage_java                    = true
-  $m2_home                        = 'fuckyou' 
   $use_docker                     = false
 
 }
