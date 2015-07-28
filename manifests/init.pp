@@ -25,7 +25,6 @@ class scm_agent (
 
   class {::scm_agent::install: 
     version   => $version,
-    m2_home   => $m2_home,
   }
   ->
   class {::scm_agent::config:
@@ -42,5 +41,8 @@ class scm_agent (
     proxy_port    => $proxy_port,
   }
   ->
-  class {::scm_agent::service: version => $version }
+  class {::scm_agent::service: 
+    version => $version,
+    m2_home   => $m2_home,
+  }
 }

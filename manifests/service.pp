@@ -2,6 +2,7 @@ class scm_agent::service (
   $service_ensure       = $scm_agent::params::service_ensure,
   $service              = $scm_agent::params::service_name,
   $version              = $scm_agent::params::version,
+  $m2_home,
 )inherits scm_agent::params{
 
   file {'/etc/init.d/scm_agent':
