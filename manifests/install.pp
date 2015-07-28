@@ -3,6 +3,7 @@ class scm_agent::install (
   $download_url           = $scm_agent::params::download_url,
   $version,
   $pkg_name               = $scm_agent::params::pkg_name,
+  $m2_home,
 )inherits scm_agent::params{
 
   File {

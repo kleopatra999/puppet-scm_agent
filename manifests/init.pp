@@ -23,7 +23,10 @@ class scm_agent (
 
   validate_re($scm_type, '^GITHUB$|^GITHUBENTERPRISE$|^STASH$', "You must pass GITHUB || GITHUBENTERPRISE || STASH to $scm_type")
 
-  class {::scm_agent::install: version => $version }
+  class {::scm_agent::install: 
+    version   => $version,
+    m2_home   => $m2_home,
+  }
   ->
   class {::scm_agent::config:
     manage_java   => $manage_java,
@@ -37,7 +40,6 @@ class scm_agent (
     scm_password  => $scm_password,
     proxy_host    => $proxy_host,
     proxy_port    => $proxy_port,
-    m2_home       => $m2_home,
   }
   ->
   class {::scm_agent::service: version => $version }
