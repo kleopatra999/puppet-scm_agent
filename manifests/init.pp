@@ -40,6 +40,6 @@ class scm_agent (
   ->
   class {::scm_agent::service: 
     version => $version,
-    m2_home   => $m2_home,
+    m2_home => $m2_home,
   }
 }
