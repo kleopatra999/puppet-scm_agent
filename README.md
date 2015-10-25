@@ -1,5 +1,5 @@
 # SRC:CLR On-Premise SCM Agent Puppet Module
-This module installs the SRC:CLR on-premise agent from docker hub
+This module installs the SRC:CLR on-premise agent from docker hub.  That is, this runs the SRC:CLR agent for internal testing of SRC:CLR's own code.  
 
 
 # Requires Modules
